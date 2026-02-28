@@ -24,6 +24,6 @@ export const projects: Project[] = [
     description: "Website made for Slaatto Morsbøl, a Copenhagen based architecture studio.",
     url: "https://slaattomorsboel.dk",
     type: "Side project",
-    tech: ["nextjs", "typescript", "tailwind", "vercel"],
+    tech: ["nextjs", "typescript", "tailwind", "vercel", "figma"],
   }
 ];
