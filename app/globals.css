@@ -118,6 +118,30 @@ a {
   opacity: 1;
 }
 
+/* Tech icon tooltip */
+.tech-tooltip::after {
+  content: attr(data-label);
+  position: absolute;
+  left: 50%;
+  bottom: 100%;
+  transform: translateX(-50%);
+  margin-bottom: 6px;
+  font-size: 11px;
+  color: var(--foreground);
+  background: #1a1a1a;
+  border: 1px solid #ffffff0a;
+  border-radius: 4px;
+  padding: 2px 8px;
+  opacity: 0;
+  transition: opacity 0.2s ease;
+  pointer-events: none;
+  white-space: nowrap;
+}
+
+.tech-tooltip:hover::after {
+  opacity: 1;
+}
+
 /* Per-letter color transition on hover */
 .gradient-text span {
   color: var(--muted);

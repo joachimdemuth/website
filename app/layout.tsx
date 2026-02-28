@@ -36,9 +36,9 @@ export default function RootLayout({
             <Link href="/">
               <GradientText>home</GradientText>
             </Link>
-            <span className="nav-tooltip cursor-default">
+            <Link href="/projects">
               <GradientText>projects</GradientText>
-            </span>
+            </Link>
             <Link href="/music">
               <GradientText>music</GradientText>
             </Link>
