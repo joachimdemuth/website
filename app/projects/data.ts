@@ -4,7 +4,7 @@ export type Project = {
   title: string;
   description: string;
   url: string;
-  type: "Tool" | "Experiment" | "Side project" | "Open source" | "Template" | "Personal project";
+  type: "Tool" | "Experiment" | "Side project" | "Open source" | "Template" | "Personal project" | "Work";
   tech?: Tech[];
 };
 
@@ -19,6 +19,13 @@ export const projects: Project[] = [
   //   url: "https://example.com",
   //   type: "tool",
   // },
+  {
+    title: "P-Secure",
+    description: "Automated background checks for companies working in critical infrastructure.",
+    url: "https://p-secure.com",
+    type: "Work",
+    tech: ["nextjs", "typescript", "tailwind", "Azure DevOps", "CI/CD"],
+  },
   {
     title: "Should i buy this vinyl?",
     description: "A LLM based app for vinyl newbies to help them decide if they should buy a vinyl record.",
