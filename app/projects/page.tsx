@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import { GradientText } from "../components/gradient-text";
 import { projects } from "./data";
 import { TechIcon } from "./tech-icon";
 
@@ -55,6 +56,15 @@ export default function Projects() {
           ))}
         </ul>
       )}
+
+      <div className="animate-in mt-16 border-t border-white/5 pt-10" style={{ "--delay": "500ms" } as React.CSSProperties}>
+        <p className="text-[15px] text-muted">
+          Have something you want to build?{" "}
+          <a href="mailto:jdemuth18@gmail.com">
+            <GradientText>Get in touch.</GradientText>
+          </a>
+        </p>
+      </div>
     </main>
   );
 }

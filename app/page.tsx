@@ -1,7 +1,7 @@
 import { GradientText } from "./components/gradient-text";
 import { NowPlayingCompact } from "./components/now-playing-compact";
 
-const experience = [
+const experience: { role: string; company: string; href: string | null; period: string }[] = [
   {
     role: "Tech Lead",
     company: "P-Secure",
@@ -17,7 +17,7 @@ const experience = [
   {
     role: "Product Designer",
     company: "Maybe Tomorrow",
-    href: "",
+    href: null,
     period: "2023 -- 2024",
   },
   {
@@ -40,34 +40,57 @@ const experience = [
   },
 ];
 
+const jsonLd = {
+  "@context": "https://schema.org",
+  "@type": "Person",
+  name: "Joachim Demuth",
+  jobTitle: "Tech Lead",
+  url: "https://joachimdemuth.com",
+  sameAs: [
+    "https://github.com/joachimdemuth",
+    "https://x.com/joachimdemuth",
+    "https://linkedin.com/in/joachimdemuth",
+  ],
+  worksFor: {
+    "@type": "Organization",
+    name: "P-Secure",
+    url: "https://p-secure.com",
+  },
+  address: {
+    "@type": "PostalAddress",
+    addressLocality: "Copenhagen",
+    addressCountry: "DK",
+  },
+  email: "jdemuth18@gmail.com",
+};
+
 export default function Home() {
   return (
     <main>
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
+      />
       <h1 className="text-2xl font-medium tracking-tight">Joachim Demuth</h1>
 
       <div className="animate-in mt-8 space-y-4 text-[15px] leading-relaxed text-muted" style={{ "--delay": "100ms" } as React.CSSProperties}>
         <p>
-          Tech Lead, based in Copenhagen. Currently at{" "}
-          <a
-            href="https://p-secure.com"
-            target="_blank"
-            rel="noopener noreferrer"
-            className="text-foreground underline decoration-muted/50 underline-offset-[3px] transition-colors hover:decoration-foreground"
-          >
-            P-Secure
+          Tech Lead based in Copenhagen. At{" "}
+          <a href="https://p-secure.com" target="_blank" rel="noopener noreferrer">
+            <GradientText>P-Secure</GradientText>
           </a>
-          , where I lead product and engineering for automated background checks
-          in critical infrastructure.
+          {" "}I lead product and engineering — building the team and product
+          behind automated background checks for companies in critical
+          infrastructure.
         </p>
         <p>
-          I started in UX and digital design admiring modern products that pushed the boundaries of design and user experience, spent years shaping interfaces at
-          Telenor and smaller studios, and eventually moved into engineering and
-          technical leadership. These days I spend most of my time writing code,
-          defining product direction, and experimenting with the agentic side of
-          AI.
+          Started in design — a few years at Telenor and smaller studios —
+          before moving into engineering. The two never really separated, and
+          the best work happens when you don&apos;t let them.
         </p>
         <p>
-          Outside of work I build my ideas to learn new things, shoot film and spend a bunch of time discovering and listening to new music.
+          Outside work I build side projects, shoot film, and spend too much
+          time looking for music.
         </p>
       </div>
 
@@ -78,14 +101,13 @@ export default function Home() {
             <li key={`${item.company}-${item.period}`} className="flex items-baseline justify-between gap-4">
               <span className="text-[15px]">
                 {item.role},{" "}
-                <a
-                  href={item.href}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="text-muted underline decoration-muted/50 underline-offset-[3px] transition-colors hover:text-foreground hover:decoration-foreground"
-                >
-                  {item.company}
-                </a>
+                {item.href ? (
+                  <a href={item.href} target="_blank" rel="noopener noreferrer">
+                    <GradientText>{item.company}</GradientText>
+                  </a>
+                ) : (
+                  <span className="text-muted">{item.company}</span>
+                )}
               </span>
               <span className="shrink-0 text-sm tabular-nums text-muted">
                 {item.period}

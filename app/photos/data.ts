@@ -36,7 +36,7 @@ export const photos: Photo[] = [
   // },
   {
     src: "/photos/R1-00803-0025.jpg",
-    alt: "Cakes at Slaatto Morsbøl exhibition",
+    alt: "Desserts at Slaatto Morsbøl exhibition",
     aspect: "landscape",
     camera: OM1,
     film: "Kodak Gold 400",
@@ -45,7 +45,7 @@ export const photos: Photo[] = [
   },
   {
     src: "/photos/kaktus.jpg",
-    alt: "Cactus plant at the local graveyard",
+    alt: "Cactus plant at Bispebjerg graveyard",
     aspect: "portrait",
     camera: SONYRX,
     year: 2025,
@@ -53,7 +53,7 @@ export const photos: Photo[] = [
   },
   {
     src: "/photos/IMG_1201.jpg",
-    alt: "Old Citroen",
+    alt: "Old Citroen in a phenomenal color",
     aspect: "portrait",
     camera: iPhone11Pro,
     year: 2022,
@@ -61,7 +61,7 @@ export const photos: Photo[] = [
   },
   {
     src: "/photos/IMG_3386.jpg",
-    alt: "Car in front of a house",
+    alt: "Car in front of a house in Iceland",
     aspect: "landscape",
     camera: iPhone11Pro,
     year: 2023,
@@ -221,7 +221,7 @@ export const photos: Photo[] = [
   },
   {
     src: "/photos/000176870017.jpg",
-    alt: "Tacoooooooo",
+    alt: "Tacoshop in Brooklyn, New York",
     aspect: "portrait",
     camera: OM1,
     year: 2022,
@@ -229,7 +229,7 @@ export const photos: Photo[] = [
   },
   {
     src: "/photos/000176870021.jpg",
-    alt: "Weeeeeell",
+    alt: "Well, well, well",
     aspect: "portrait",
     camera: OM1,
     year: 2022,

@@ -2,7 +2,7 @@ import { ImageResponse } from "next/og";
 
 export const runtime = "edge";
 
-export const alt = "Joachim Demuth";
+export const alt = "Projects - Joachim Demuth";
 export const size = { width: 1200, height: 630 };
 export const contentType = "image/png";
 
@@ -28,7 +28,7 @@ export default async function Image() {
             letterSpacing: "-0.02em",
           }}
         >
-          Joachim Demuth
+          Projects
         </div>
         <div
           style={{
@@ -37,7 +37,7 @@ export default async function Image() {
             marginTop: 20,
           }}
         >
-          Tech Lead based in Copenhagen
+          Things I build
         </div>
       </div>
     ),
