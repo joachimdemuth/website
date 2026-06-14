@@ -20,13 +20,6 @@ export const projects: Project[] = [
   //   type: "tool",
   // },
   {
-    title: "P-Secure",
-    description: "Automated background checks for companies working in critical infrastructure.",
-    url: "https://p-secure.com",
-    type: "Work",
-    tech: ["nextjs", "typescript", "tailwind", "Azure DevOps", "CI/CD"],
-  },
-  {
     title: "Should i buy this vinyl?",
     description: "A LLM based app for vinyl newbies to help them decide if they should buy a vinyl record.",
     url: "https://shouldibuythisvinyl.com",

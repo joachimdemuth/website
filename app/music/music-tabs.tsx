@@ -1,0 +1,135 @@
+"use client";
+
+import { useState } from "react";
+import Image from "next/image";
+import type { RecentTrack, SpotifyTrack, TopArtist } from "@/lib/spotify";
+import type { VinylRecord } from "@/lib/discogs";
+import { timeAgo } from "@/lib/utils";
+import { NowPlaying } from "./now-playing";
+import { VinylGrid } from "./vinyl-grid";
+
+type View = "streaming" | "vinyl";
+
+type Props = {
+  recentlyPlayed: RecentTrack[];
+  topTracks: SpotifyTrack[];
+  topArtists: TopArtist[];
+  records: VinylRecord[] | null;
+};
+
+export function MusicTabs({ recentlyPlayed, topTracks, topArtists, records }: Props) {
+  const [view, setView] = useState<View>("streaming");
+
+  return (
+    <div>
+      <div className="animate-in flex items-center gap-3 text-sm" style={{ "--delay": "100ms" } as React.CSSProperties}>
+        <button
+          onClick={() => setView("streaming")}
+          className={`transition-colors ${view === "streaming" ? "text-foreground" : "text-muted hover:text-foreground"}`}
+        >
+          streaming
+        </button>
+        <span className="text-muted/30">·</span>
+        <button
+          onClick={() => setView("vinyl")}
+          className={`transition-colors ${view === "vinyl" ? "text-foreground" : "text-muted hover:text-foreground"}`}
+        >
+          vinyl
+        </button>
+      </div>
+
+      {view === "streaming" ? (
+        <>
+          <section className="animate-in mt-10" style={{ "--delay": "200ms" } as React.CSSProperties}>
+            <NowPlaying />
+          </section>
+
+          {topArtists.length > 0 && (
+            <section className="animate-in mt-16" style={{ "--delay": "300ms" } as React.CSSProperties}>
+              <h2 className="text-sm font-medium text-muted">Most listened this month</h2>
+              <ul className="mt-6 grid grid-cols-2 gap-x-6 gap-y-5 sm:grid-cols-4">
+                {topArtists.map((artist, i) => (
+                  <li key={artist.name}>
+                    <a href={artist.url} target="_blank" rel="noopener noreferrer" className="group block">
+                      {artist.image ? (
+                        <Image
+                          src={artist.image}
+                          alt={artist.name}
+                          width={160}
+                          height={160}
+                          className="aspect-square w-full rounded-sm object-cover grayscale transition-all duration-300 group-hover:grayscale-0"
+                          unoptimized
+                        />
+                      ) : (
+                        <div className="aspect-square w-full rounded-sm bg-muted/10" />
+                      )}
+                      <p className="mt-2 truncate text-[13px] transition-colors group-hover:text-foreground">
+                        <span className="text-muted">{i + 1}.</span>{" "}{artist.name}
+                      </p>
+                    </a>
+                  </li>
+                ))}
+              </ul>
+            </section>
+          )}
+
+          {topTracks.length > 0 && (
+            <section className="animate-in mt-16" style={{ "--delay": "400ms" } as React.CSSProperties}>
+              <h2 className="text-sm font-medium text-muted">On repeat</h2>
+              <ol className="mt-6 space-y-3">
+                {topTracks.map((track, i) => (
+                  <li key={`${track.title}-${track.artist}`}>
+                    <a href={track.trackUrl} target="_blank" rel="noopener noreferrer" className="group flex items-center gap-4">
+                      <span className="w-5 shrink-0 text-right text-sm tabular-nums text-muted">{i + 1}</span>
+                      {track.albumArt && (
+                        <Image src={track.albumArt} alt={track.album} width={36} height={36} className="rounded-sm" unoptimized />
+                      )}
+                      <div className="min-w-0 flex-1">
+                        <p className="truncate text-[15px] transition-colors group-hover:text-foreground">{track.title}</p>
+                        <p className="truncate text-sm text-muted">{track.artist}</p>
+                      </div>
+                    </a>
+                  </li>
+                ))}
+              </ol>
+            </section>
+          )}
+
+          {recentlyPlayed.length > 0 && (
+            <section className="animate-in mt-16" style={{ "--delay": "500ms" } as React.CSSProperties}>
+              <h2 className="text-sm font-medium text-muted">Recently played</h2>
+              <ul className="mt-6 space-y-3">
+                {recentlyPlayed.map((track, i) => (
+                  <li key={`${track.title}-${track.playedAt}-${i}`}>
+                    <a href={track.trackUrl} target="_blank" rel="noopener noreferrer" className="group flex items-center justify-between gap-4">
+                      <div className="flex min-w-0 items-center gap-4">
+                        {track.albumArt && (
+                          <Image src={track.albumArt} alt={track.album} width={36} height={36} className="shrink-0 rounded-sm" unoptimized />
+                        )}
+                        <div className="min-w-0">
+                          <p className="truncate text-[15px] transition-colors group-hover:text-foreground">{track.title}</p>
+                          <p className="truncate text-sm text-muted">{track.artist}</p>
+                        </div>
+                      </div>
+                      <span className="shrink-0 text-xs tabular-nums text-muted/70">{timeAgo(track.playedAt)}</span>
+                    </a>
+                  </li>
+                ))}
+              </ul>
+            </section>
+          )}
+
+          {topTracks.length === 0 && topArtists.length === 0 && recentlyPlayed.length === 0 && (
+            <p className="mt-10 text-[15px] text-muted">
+              No listening data available. Make sure the Spotify environment variables are configured.
+            </p>
+          )}
+        </>
+      ) : (
+        <div className="animate-in" style={{ "--delay": "200ms" } as React.CSSProperties}>
+          <VinylGrid records={records} />
+        </div>
+      )}
+    </div>
+  );
+}

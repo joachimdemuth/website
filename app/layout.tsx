@@ -18,9 +18,33 @@ const geistMono = Geist_Mono({
 });
 
 export const metadata: Metadata = {
-  title: "Joachim Demuth",
+  metadataBase: new URL("https://joachimdemuth.com"),
+  title: {
+    default: "Joachim Demuth",
+    template: "%s — Joachim Demuth",
+  },
   description:
-    "Designer turned tech lead based in Copenhagen. Building products at P-Secure.",
+    "Tech Lead based in Copenhagen. Building products and teams at P-Secure.",
+  keywords: ["Joachim Demuth", "Tech Lead", "Copenhagen", "Design Engineer", "P-Secure", "product engineering"],
+  authors: [{ name: "Joachim Demuth", url: "https://joachimdemuth.com" }],
+  openGraph: {
+    type: "website",
+    locale: "en_US",
+    url: "https://joachimdemuth.com",
+    siteName: "Joachim Demuth",
+    title: "Joachim Demuth",
+    description: "Tech Lead based in Copenhagen. Building products and teams at P-Secure.",
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "Joachim Demuth",
+    description: "Tech Lead based in Copenhagen. Building products and teams at P-Secure.",
+    creator: "@joachimdemuth",
+  },
+  robots: {
+    index: true,
+    follow: true,
+  },
 };
 
 export default function RootLayout({
@@ -44,9 +68,6 @@ export default function RootLayout({
             </Link>
             <Link href="/photos">
               <GradientText>photos</GradientText>
-            </Link>
-            <Link href="/notes">
-              <GradientText>notes</GradientText>
             </Link>
           </nav>
           <ViewTransition>{children}</ViewTransition>

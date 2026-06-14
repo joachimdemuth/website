@@ -1,0 +1,47 @@
+# Joachim Demuth
+
+Tech Lead based in Copenhagen, Denmark. Building products and teams at P-Secure — automated background checks for companies in critical infrastructure.
+
+## Background
+
+Started in UX and digital design at Telenor and smaller studios, then moved into engineering and technical leadership. Works at the intersection of design and engineering — equally comfortable defining a product and building it.
+
+## Education
+
+- MSc in Digital Design & Interactive Technologies, IT University of Copenhagen
+- BSc in Digital Design & Interactive Technologies, Aarhus University
+
+## Skills
+
+Design: UX design, product design, interaction design, Figma
+Engineering: TypeScript, React, Next.js, Tailwind CSS, Node.js, AI/agentic workflows
+Leadership: product direction, engineering team management, technical decision-making
+
+## Work
+
+- Tech Lead at P-Secure (2025–present): https://p-secure.com
+- Design Engineer at P-Secure (2024–2025)
+- Product Designer at Maybe Tomorrow (2023–2024)
+- Digital Designer at VENZO (2022–2023): https://venzo.com
+- Digital Designer at Telenor (2021–2022): https://telenor.dk
+
+## Projects
+
+- Should I Buy This Vinyl? — LLM-based app for vinyl record decisions: https://shouldibuythisvinyl.com
+- Slaatto Morsbøl — website for a Copenhagen architecture studio: https://slaattomorsboel.dk
+
+## Interests
+
+Film photography (Olympus OM-1, Olympus Mju I and others), vinyl record collecting, music discovery.
+
+## Open to
+
+Collaborating on projects where design and engineering need to work together. Particularly useful early — taking an idea from concept through to a working product built on modern frameworks like Next.js and React. Comfortable owning both the product thinking and the implementation, or working alongside a team that needs someone who can bridge the two. Reach out at jdemuth18@gmail.com.
+
+## Links
+
+- Website: https://joachimdemuth.com
+- GitHub: https://github.com/joachimdemuth
+- X: https://x.com/joachimdemuth
+- LinkedIn: https://linkedin.com/in/joachimdemuth
+- Email: jdemuth18@gmail.com
