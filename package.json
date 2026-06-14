@@ -7,7 +7,7 @@
     "dev-exp": "next dev --experimental-https",
     "build": "next build",
     "start": "next start",
-    "lint": "eslint",
+    "lint": "eslint"
   },
   "dependencies": {
     "@vercel/analytics": "^1.6.1",
